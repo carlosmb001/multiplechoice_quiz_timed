@@ -1,0 +1,18 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#start{
+    margin: 0 auto;
+    border-radius: 50px black;
+
+}
+
+.h1{
+    font: 50px "Helvetica Neue" black;
+    display: inline-block;
+    font-size: 50px;
+    color: #fff;
+}
+
