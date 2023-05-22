@@ -3,10 +3,11 @@
     margin: 0;
     --color: white;
     font: "Helvetica", sans-serif;
+    --backgroundColor: rgb(212, 2, 212);
 }
 
 header{
-    color: rgb(184, 4, 4);
+    color:var(--backgroundColor);
     display: flex;
     justify-content: space-between;
 }
