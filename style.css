@@ -16,10 +16,9 @@ header{
     display: inline
 }
 .timer{
-    display:inline;
+    display:none;
 }
 #start{
-    display: none;
     width: 70%;
     padding: 20px 20px;
     background-color: rgb(212, 2, 212);
@@ -57,6 +56,9 @@ button{
 #next-question{
     display: none;
 }
+.questions{
+    display: none;
+}
 #questions{
     width: 70%;
     padding: 20px 20px;
@@ -70,19 +72,19 @@ button{
     flex-direction: column;
 }
 .questions ul button{
-    width: 20%;
+    width: 30%;
     text-align: left;
 }
-#first-answer::before{
+.first-answer::before{
     content: "1. ";
 }
-#second-answer::before{
+.second-answer::before{
     content: "2. ";
 }
-#third-answer::before{
+.third-answer::before{
     content: "3. ";
 }
-#fourth-answer::before{
+.fourth-answer::before{
     content: "4. ";
 }
 button:hover {

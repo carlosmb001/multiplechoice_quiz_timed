@@ -1,3 +1,5 @@
+
+
 var questions = [
     {
       question: "Javascript is an _______ language?",
@@ -27,3 +29,72 @@ var questions = [
   ];
   
   var currentQuestionIndex = 0;
+
+  console.log(questions[currentQuestionIndex].question);
+  console.log(questions[currentQuestionIndex].answerChoices);
+  console.log(questions[currentQuestionIndex].correctAnswerIndex);
+
+  //get the information about the question, choices and answer 
+  var disappearEl = document.getElementById("start");
+  var timerEl = document.getElementById("timer");
+  var highScoreEl = document.getElementById("highscore");
+  var questionEl = document.getElementById("questions");
+  var choicesEl = document.getElementById("choices");
+  var answerEl = document.getElementById("answer");
+
+
+  questionEl.textContent = questions[currentQuestionIndex].question;
+  answerEl.textContent = questions[currentQuestionIndex].answerChoices;
+
+  function start(){
+  
+    questionEl.textContent = "";
+    answerEl.textContent = "";
+    
+  }
+
+    /*for (var i = 0; i < questions[currentQuestionIndex].answerChoices.length; i++) {
+      var choiceEl = document.createElement("button");
+      choiceEl.textContent = questions[currentQuestionIndex].answerChoices[i];
+      choiceEl.setAttribute("class", "choice");
+      choicesEl.appendChild(choiceEl);
+      choiceEl.addEventListener("click", checkAnswer);
+    }
+  }
+  */
+  /* questionEl.textContent = questions[currentQuestionIndex].question;
+
+
+  var choicesEl = document.getElementById("choices");
+  choicesEl.textContent = "";
+
+  for (var i = 0; i < questions[currentQuestionIndex].answerChoices.length; i++) {
+    var choiceEl = document.createElement("button");
+    choiceEl.textContent = questions[currentQuestionIndex].answerChoices[i];
+    choiceEl.setAttribute("class", "choice");
+    choicesEl.appendChild(choiceEl);
+    choiceEl.addEventListener("click", checkAnswer);
+  }
+
+
+  //questionEl.textContent = questions[currentQuestionIndex].question;
+
+
+  //var choicesEl = document.getElementById("choices");
+ // choicesEl.textContent = "";
+*/
+
+
+  // event listener for answer choices, checks if the answer is correct, and updates
+  // will start the question, the timer, and the prompt message should disappear
+
+  // this will start the question and prompt message
+  disappearEl.addEventListener("click",function() {
+  disappearEl.style.display = "none";
+  timerEl.style.display = "inline";
+  questionEl.classList.remove("questions");
+  start();
+  });
+
+
+
