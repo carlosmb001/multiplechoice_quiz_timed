@@ -13,7 +13,7 @@ header{
 }
 
 .highscore{
-    display: inline
+    display: inline;
 }
 .timer{
     display:none;
@@ -74,18 +74,6 @@ button{
 .questions ul button{
     width: 30%;
     text-align: left;
-}
-.first-answer::before{
-    content: "1. ";
-}
-.second-answer::before{
-    content: "2. ";
-}
-.third-answer::before{
-    content: "3. ";
-}
-.fourth-answer::before{
-    content: "4. ";
 }
 button:hover {
     background-color: rgb(212, 2, 212);

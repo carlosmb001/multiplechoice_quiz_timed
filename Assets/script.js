@@ -3,65 +3,64 @@
 var questions = [
     {
       question: "Javascript is an _______ language?",
-      answerChoices: ["Object-Oriented", "Object-Based", "Procedural", "None of the Above"],
-      correctAnswerIndex: 0
+      answers: ["Object-Oriented", "Object-Based", "Procedural", "None of the Above"],
+      answer: 0
     },
     {
       question: "Which of the following methods is used to access HTML elements using Javascript?",
-      answerChoices: ["getElementById()", "getElementsByClassName()", "Both A and B", "None of the Above"],
-      correctAnswerIndex: 2
+      answers: ["getElementById()", "getElementsByClassName()", "Both A and B", "None of the Above"],
+      answer: 2
     },
     {
       question: "Which of the following keywords is used to define a variable in Javascript?",
-      answerChoices: ["var", "let", "Both A and B", "None of the Above"],
-      correctAnswerIndex: 2
+      answers: ["var", "let", "Both A and B", "None of the Above"],
+      answer: 2
     },
     {
       question: "Upon encountering empty statements, what does the Javascript Interpreter do?",
-      answerChoices: ["Throws an error", "Ignores the statement", "Gives a warning", "None of the Above"],
-      correctAnswerIndex: 1
-    },
-    {
-      question: "What is the capital of France?",
-      answerChoices: ["Paris", "London", "Berlin", "Rome"],
-      correctAnswerIndex: 0
+      answers: ["Throws an error", "Ignores the statement", "Gives a warning", "None of the Above"],
+      answer: 1
     }
   ];
   
-  var currentQuestionIndex = 0;
-
-  console.log(questions[currentQuestionIndex].question);
-  console.log(questions[currentQuestionIndex].answerChoices);
-  console.log(questions[currentQuestionIndex].correctAnswerIndex);
+  counter = 0;
+  timer = 60000;
 
   //get the information about the question, choices and answer 
-  var disappearEl = document.getElementById("start");
+  var startEl = document.getElementById("start");
   var timerEl = document.getElementById("timer");
   var highScoreEl = document.getElementById("highscore");
   var questionEl = document.getElementById("questions");
-  var choicesEl = document.getElementById("choices");
-  var answerEl = document.getElementById("answer");
+  var choiceEl = document.getElementsByClassName("choice");
 
-
-  questionEl.textContent = questions[currentQuestionIndex].question;
-  answerEl.textContent = questions[currentQuestionIndex].answerChoices;
+  function clearIntro(){
+  startEl.style.display = "none";
+  timerEl.style.display = "inline";
+  questionEl.classList.remove("questions");
+  }
 
   function start(){
-  
-    questionEl.textContent = "";
-    answerEl.textContent = "";
+    for (var i = 0; i < questions.length; i++) {
+      questionEl.textContent = questions[i].question;
+      for (var j = 0; j < questions[i].answers.length; j++){
+        choiceEl.textContent = questions[i].answers[j];
+      }
+    }
+  }
+
+  //fuction to start the time
+  function countdown(timerEl) {
+    var seconds = 120;
+    var intervalId = setInterval(function() {
+      seconds--;
+      timerEl.textContent = seconds;
+      if (seconds === 0) {
+        clearInterval(intervalId);
+      }
+    }, 1000);
     
   }
 
-    /*for (var i = 0; i < questions[currentQuestionIndex].answerChoices.length; i++) {
-      var choiceEl = document.createElement("button");
-      choiceEl.textContent = questions[currentQuestionIndex].answerChoices[i];
-      choiceEl.setAttribute("class", "choice");
-      choicesEl.appendChild(choiceEl);
-      choiceEl.addEventListener("click", checkAnswer);
-    }
-  }
-  */
   /* questionEl.textContent = questions[currentQuestionIndex].question;
 
 
@@ -89,12 +88,10 @@ var questions = [
   // will start the question, the timer, and the prompt message should disappear
 
   // this will start the question and prompt message
-  disappearEl.addEventListener("click",function() {
-  disappearEl.style.display = "none";
-  timerEl.style.display = "inline";
-  questionEl.classList.remove("questions");
+  startEl.addEventListener("click",function() {
+  clearIntro();
   start();
+  countdown(timerEl);
   });
-
 
 

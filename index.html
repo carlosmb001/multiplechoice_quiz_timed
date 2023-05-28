@@ -8,30 +8,33 @@
     <title>Coding Quiz</title>
 </head>
 <header>
-    <div id="highscore" class="highscore">View Highscore</div>
-    <div id="timer" class="timer"> Timer:</div>
+    <button id="highscore" class="highscore">View Highscore</button>
+    <div id="timer" class="timer"> Timer</div>
 </header>
 <body>
 
     <section id="start" class="start">
     <h1>Coding Quiz Challenge</h1>
-    <p id="info">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</p>
+    <p id="info">Try to answer the following code-related questions within 2 minutes. There are a total of 4 questions. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!
+    </p>
     <button id="start-button" class="start-button">
         Start Quiz!
     </button>
     </section>
     <section id="questions" class="questions">
-        <h1 id = "question">Javascript is an _______ language?</h1>
+        <h1 id = "question">Questions will go here</h1> 
         <ul id="answers">
-            <button id="answer" class="first-answer">Object-Oriented</li>
-            <button id="answer" class="second-answer">Object-Based</li>
-            <button id="answer" class="third-answer">Procedural</li>
-            <button id="answer" class="fourth-answer">None of the Above</li>
+            <button class="choice" id="answer0" class="first-answer">choice1</button>
+            <button class="choice" id="answer1" class="second-answer">choice2</button>
+            <button class="choice" id="answer2" class="third-answer">choice3</button>
+            <button class="choice" id="answer3" class="fourth-answer">choice4</button>
         </ul>
         <ul>
             <button id="next-question">delete this</button>
         </ul>
     </section>
+
+
     <script src="./assets/script.js"></script>
 </body>
 </html>
