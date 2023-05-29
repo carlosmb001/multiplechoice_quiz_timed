@@ -40,6 +40,8 @@ var questions = [
   var scoreEl = document.getElementById("final-score");
   var endEL = document.getElementById("end");
   var highScores = document.getElementById("high-scores");
+  var initials = document.getElementById("initials");
+  var submit = document.getElementById("submit-button");
   
 
   // removed the into amd displays the timer
@@ -48,11 +50,17 @@ var questions = [
   timerEl.style.display = "";
   questionEl.classList.remove("questions");
   }
-
+  function showIntro(){
+    startEl.style.display = "block";
+    timerEl.style.display = "none";
+    questionEl.classList.add("questions");
+    }
   function hideTimer(){
   timerEl.style.display = "none";
   }
-
+  function showTimer(){
+  timerEl.style.display = "block";
+  }
   function hideQuestions(){
   questionEl.style.display = "none";
   }
@@ -67,11 +75,7 @@ var questions = [
   }
   function finalPrompt(){
     endEL.style.display = "block";
-    highScoresEl.style.display = "block";
-  }
-  function submitInput(){
-    endEL.style.display = "none";
-    highScoresEl.style.display = "none";
+    highScores.style.display = "block";
   }
 
   // begining of the questoinaire
@@ -135,10 +139,18 @@ var questions = [
   }
 
   // this will start the question and prompt message
-  startEl.addEventListener("click",function() {
+  var startOver = startEl.addEventListener("click",function() {
   clearIntro();
   start();
   countdown(timerEl);
+  showTimer();
+
   });
-
-
+  
+  submit.addEventListener("click", function(){
+    questionIndex = 0;
+    score = 0;
+    seconds = 60;
+    finalPrompt();
+    //showIntro(); // fix this 
+  });
