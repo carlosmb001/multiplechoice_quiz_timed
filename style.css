@@ -12,8 +12,8 @@ header{
     justify-content: space-between;
 }
 
-.highscore{
-    display: inline;
+.high-score{
+    display: none;
 }
 .timer{
     display:none;
@@ -81,6 +81,7 @@ button{
     justify-content:center;
 }
 #end{
+    display: none;
     width: 70%;
     padding: 20px 20px;
     background-color: rgb(212, 2, 212);
@@ -109,4 +110,8 @@ button:hover {
 button:active {
     transition-duration: 0.1s;
     background-color: green;
-  }
+}
+
+#initals {
+    width: 20%; 
+}

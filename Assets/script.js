@@ -33,25 +33,53 @@ var questions = [
   //get the information about the question, choices and answer 
   var startEl = document.getElementById("start");
   var timerEl = document.getElementById("timer");
-  var highScoreEl = document.getElementById("highscore");
+  var highScoreEl = document.getElementById("high-score-btn");
   var questionEl = document.getElementById("questions");
   var questionTitleEl = document.getElementById("question-title");
   var choiceEl = document.getElementsByClassName("choice");
   var scoreEl = document.getElementById("final-score");
+  var endEL = document.getElementById("end");
+  var highScores = document.getElementById("high-scores");
+  
 
-
+  // removed the into amd displays the timer
   function clearIntro(){
   startEl.style.display = "none";
-  timerEl.style.display = "inline";
+  timerEl.style.display = "";
   questionEl.classList.remove("questions");
   }
 
+  function hideTimer(){
+  timerEl.style.display = "none";
+  }
+
+  function hideQuestions(){
+  questionEl.style.display = "none";
+  }
+  function showQuestions(){
+  questionEl.style.display = "block";
+  }
+  function hideScores(){
+  highScoreEl.style.display = "none";
+  }
+  function showScores(){
+  highScoreEl.style.display = "block";
+  }
+  function finalPrompt(){
+    endEL.style.display = "block";
+    highScoresEl.style.display = "block";
+  }
+  function submitInput(){
+    endEL.style.display = "none";
+    highScoresEl.style.display = "none";
+  }
+
+  // begining of the questoinaire
   function start(){
       questionTitleEl.textContent = currentQuestion.question;
       currentQuestion = questions[questionIndex];
 
       for (var i = 0; i < choices; i++){
-        //choiceEl.textContent = currentQuestion.answers[i];
         var button = document.getElementById("answer" + i);
         button.textContent = currentQuestion.choices[i];
         button.addEventListener("click", checkAnswer);
@@ -59,6 +87,8 @@ var questions = [
 
     }
 
+
+    // Checks the answer the user selected
   function checkAnswer(event){
     var correctAnswer = currentQuestion.answer;
     var selectedButton = event.target.textContent;
@@ -77,7 +107,9 @@ var questions = [
       seconds = 0;
       scoreEl.textContent = "You got " + score +" answers correct" ;
       questionEl.style.display = "none";
-      timerEl.style.display = "none";
+      hideTimer();
+      hideQuestions();
+      finalPrompt();
       return;
     }
   }
@@ -97,6 +129,10 @@ var questions = [
 
   }
 
+  function hideScores(){
+    highScoreEl.style.display = "inline";
+
+  }
 
   // this will start the question and prompt message
   startEl.addEventListener("click",function() {
