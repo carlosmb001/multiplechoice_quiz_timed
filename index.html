@@ -12,17 +12,18 @@
     <div id="timer" class="timer"> Timer</div>
 </header>
 <body>
-
+    <!-- beginning prompt -->
     <section id="start" class="start">
     <h1>Coding Quiz Challenge</h1>
-    <p id="info">Try to answer the following code-related questions within 2 minutes. There are a total of 4 questions. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!
+    <p>Try to answer the following code-related questions within 2 minutes. There are a total of 4 questions. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!
     </p>
     <button id="start-button" class="start-button">
         Start Quiz!
     </button>
+    <!-- questionaire section -->
     </section>
     <section id="questions" class="questions">
-        <h1 id = "question">Questions will go here</h1> 
+        <h1 id = "question-title">Questions will go here</h1> 
         <ul id="answers">
             <button class="choice" id="answer0" class="first-answer">choice1</button>
             <button class="choice" id="answer1" class="second-answer">choice2</button>
@@ -34,6 +35,17 @@
         </ul>
     </section>
 
+    <!-- end prompt and highscore messgae score-->
+<!-- beginning prompt -->
+    <section id="end" class="end">
+    <h1>All done!</h1>
+    <p id="final-score">Try to answer the following code-related questions within 2 minutes. There are a total of 4 questions. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!
+    </p>
+    <p>Enter your Intials:</p>
+    <input id="submit-name" class="submit-name"></input>
+    <button id="submit-button">Submit</button>
+    <!-- questionaire section -->
+    </section>
 
     <script src="./assets/script.js"></script>
 </body>
