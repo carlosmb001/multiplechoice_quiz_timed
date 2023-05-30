@@ -33,15 +33,15 @@ var questions = [
   //get the information about the question, choices and answer 
   var startEl = document.getElementById("start");
   var timerEl = document.getElementById("timer");
-  var highScoreEl = document.getElementById("high-score-btn");
+  var highScoreBtn = document.getElementById("high-score-btn");
   var questionEl = document.getElementById("questions");
   var questionTitleEl = document.getElementById("question-title");
   var choiceEl = document.getElementsByClassName("choice");
   var scoreEl = document.getElementById("final-score");
   var endEL = document.getElementById("end");
   var highScores = document.getElementById("high-scores");
-  var initials = document.getElementById("initials");
   var submit = document.getElementById("submit-button");
+  var initials = document.getElementById("initials");
   
 
   // removed the into amd displays the timer
@@ -68,14 +68,22 @@ var questions = [
   questionEl.style.display = "block";
   }
   function hideScores(){
-  highScoreEl.style.display = "none";
+  highScores.style.display = "none";
   }
   function showScores(){
-  highScoreEl.style.display = "block";
+  highScores.style.display = "block";
+  }
+  function hideInitials(){
+  initials.style.display = "none";
+  }
+  function showInitials(){
+  initials.style.display = "block";
+  }
+  function hideEnd(){
+  endEL.style.display = "none";
   }
   function finalPrompt(){
-    endEL.style.display = "block";
-    highScores.style.display = "block";
+  endEL.style.display = "block";
   }
 
   // begining of the questoinaire
@@ -122,7 +130,7 @@ var questions = [
   function countdown(timerEl) {
     var intervalId = setInterval(function() {
       seconds--;
-      timerEl.textContent = seconds;
+      timerEl.textContent = "Timer: " + seconds + " seconds remaining";
       if (seconds === 0) {
         clearInterval(intervalId);
       }
@@ -147,10 +155,24 @@ var questions = [
 
   });
   
-  submit.addEventListener("click", function(){
+  submit.addEventListener("click", function(event){
+    event.preventDefault();
+    
+    var submit = document.getElementById("submit-name").value;
+    
+    localStorage.setItem("submit-name",submit);
+    localStorage.setItem("submit-score",score);
+    submit = localStorage.getItem("submit-name");
+    initials.textContent = submit + "'s score was: " + score;
+    hideEnd();    
     questionIndex = 0;
     score = 0;
     seconds = 60;
-    finalPrompt();
+    showScores();
     //showIntro(); // fix this 
+  });
+
+  highScoreBtn.addEventListener("click", function(event){
+    event.preventDefault();
+    seconds = 0;
   });
