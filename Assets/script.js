@@ -68,7 +68,7 @@ var questions = [
   questionEl.style.display = "block";
   }
   function hideScores(){
-  highScores.style.display = "none";
+  highScores.style.visibility = "display";
   }
   function showScores(){
   highScores.style.display = "block";
@@ -86,7 +86,7 @@ var questions = [
   endEL.style.display = "block";
   }
 
-  // begining of the questoinaire
+  // beginning of the questionnaire
   function start(){
       questionTitleEl.textContent = currentQuestion.question;
       currentQuestion = questions[questionIndex];
@@ -142,7 +142,7 @@ var questions = [
   }
 
   function hideScores(){
-    highScoreEl.style.display = "inline";
+    highScores.style.display = "block";
 
   }
 
@@ -173,6 +173,8 @@ var questions = [
   });
 
   highScoreBtn.addEventListener("click", function(event){
-    event.preventDefault();
     seconds = 0;
+    score = 0;
+    clearTimeout(countdown(timerEl));
+    hideScores();
   });

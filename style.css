@@ -13,7 +13,7 @@ header{
 }
 
 .high-score{
-    display: none;
+    visibility: hidden;
 }
 .timer{
     display:none;
