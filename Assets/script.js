@@ -42,6 +42,7 @@ var questions = [
   var highScores = document.getElementById("high-scores");
   var submit = document.getElementById("submit-button");
   var initials = document.getElementById("initials");
+  var resetBtn = document.getElementById("reset-button");
   
 
   // removed the into amd displays the timer
@@ -67,20 +68,23 @@ var questions = [
   function showQuestions(){
   questionEl.style.display = "block";
   }
-  function hideScores(){
-  highScores.style.visibility = "display";
-  }
-  function showScores(){
-  highScores.style.display = "block";
-  }
   function hideInitials(){
   initials.style.display = "none";
   }
   function showInitials(){
-  initials.style.display = "block";
+  initials.style.display = "";
+  }
+  function showEnd(){
+  endEL.style.display = "block";
   }
   function hideEnd(){
   endEL.style.display = "none";
+  }
+  function showScores(){
+  highScores.style.display = "block";
+  }
+  function hideScores(){
+    highScores.style.display = "block";
   }
   function finalPrompt(){
   endEL.style.display = "block";
@@ -121,7 +125,8 @@ var questions = [
       questionEl.style.display = "none";
       hideTimer();
       hideQuestions();
-      finalPrompt();
+      showEnd();
+      showInitials();
       return;
     }
   }
@@ -131,19 +136,14 @@ var questions = [
     var intervalId = setInterval(function() {
       seconds--;
       timerEl.textContent = "Timer: " + seconds + " seconds remaining";
-      if (seconds === 0) {
+      if (seconds <= 0) {
         clearInterval(intervalId);
-      }
-      else{
-        return;
+        hideQuestions();
+        showEnd();
+        hideTimer();
+
       }
     }, 1000);
-
-  }
-
-  function hideScores(){
-    highScores.style.display = "block";
-
   }
 
   // this will start the question and prompt message
@@ -160,10 +160,13 @@ var questions = [
     
     var submit = document.getElementById("submit-name").value;
     
+    var initials = document.createElement("button");
     localStorage.setItem("submit-name",submit);
     localStorage.setItem("submit-score",score);
     submit = localStorage.getItem("submit-name");
     initials.textContent = submit + "'s score was: " + score;
+    highScores.appendChild(initials);
+
     hideEnd();    
     questionIndex = 0;
     score = 0;
@@ -175,6 +178,16 @@ var questions = [
   highScoreBtn.addEventListener("click", function(event){
     seconds = 0;
     score = 0;
-    clearTimeout(countdown(timerEl));
-    hideScores();
+    hideEnd();
+    showScores();
+  });
+
+  resetBtn.addEventListener("click", function(event){
+    event.preventDefault();
+    questionIndex = 0;
+    score = 0;
+    seconds = 60;
+    showIntro(); 
+    hideEnd();  
+
   });
