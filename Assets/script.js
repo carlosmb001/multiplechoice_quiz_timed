@@ -41,7 +41,6 @@ var questions = [
   var endEL = document.getElementById("end");
   var highScores = document.getElementById("high-scores");
   var submit = document.getElementById("submit-button");
-  var initials = document.getElementById("initials");
   var resetBtn = document.getElementById("reset-button");
   
 
@@ -68,12 +67,6 @@ var questions = [
   function showQuestions(){
   questionEl.style.display = "block";
   }
-  function hideInitials(){
-  initials.style.display = "none";
-  }
-  function showInitials(){
-  initials.style.display = "";
-  }
   function showEnd(){
   endEL.style.display = "block";
   }
@@ -84,7 +77,7 @@ var questions = [
   highScores.style.display = "block";
   }
   function hideScores(){
-    highScores.style.display = "block";
+    highScores.style.display = "none";
   }
   function finalPrompt(){
   endEL.style.display = "block";
@@ -126,7 +119,6 @@ var questions = [
       hideTimer();
       hideQuestions();
       showEnd();
-      showInitials();
       return;
     }
   }
@@ -178,7 +170,10 @@ var questions = [
   highScoreBtn.addEventListener("click", function(event){
     seconds = 0;
     score = 0;
+    clearIntro();
     hideEnd();
+    hideQuestions();
+    hideTimer();
     showScores();
   });
 
@@ -189,5 +184,6 @@ var questions = [
     seconds = 60;
     showIntro(); 
     hideEnd();  
+    hideScores();
 
   });
