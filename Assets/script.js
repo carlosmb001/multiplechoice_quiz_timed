@@ -101,7 +101,7 @@ var questions = [
   function checkAnswer(event){
     var correctAnswer = currentQuestion.answer;
     var selectedButton = event.target.textContent;
-
+console.log(score);
     if (selectedButton === correctAnswer) {
       score++;
     }
@@ -140,6 +140,9 @@ var questions = [
 
   // this will start the question and prompt message
   var startOver = startEl.addEventListener("click",function() {
+  questionIndex = 0;
+  score = 0;
+  seconds = 60;
   clearIntro();
   start();
   countdown(timerEl);
@@ -148,7 +151,7 @@ var questions = [
   });
   
   submit.addEventListener("click", function(event){
-    event.preventDefault();
+    
     
     var submit = document.getElementById("submit-name").value;
     
@@ -168,6 +171,7 @@ var questions = [
   });
 
   highScoreBtn.addEventListener("click", function(event){
+    event.preventDefault();
     seconds = 0;
     score = 0;
     clearIntro();
@@ -179,9 +183,6 @@ var questions = [
 
   resetBtn.addEventListener("click", function(event){
     event.preventDefault();
-    questionIndex = 0;
-    score = 0;
-    seconds = 60;
     showIntro(); 
     hideEnd();  
     hideScores();
