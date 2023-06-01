@@ -1,10 +1,9 @@
 
-
 var questions = [
     {
       question: "Javascript is an _______ language?",
       choices: ["Object-Oriented", "Object-Based", "Procedural", "None of the Above"],
-      answer: "Object-Oriented"
+      answer: "Object-Based"
     },
     {
       question: "Which of the following methods is used to access HTML elements using Javascript?",
@@ -20,11 +19,32 @@ var questions = [
       question: "Upon encountering empty statements, what does the Javascript Interpreter do?",
       choices: ["Throws an error", "Ignores the statement", "Gives a warning", "None of the Above"],
       answer: "Ignores the statement"
-    }
+    },
+    {
+      question: "In which HTML element, we put the JavaScript code?",
+      choices: ["<javascript>...</javascript>", "<js>...</js>", "<script>...</script>", "<css>...</css>"],
+      answer: "<script>...</script>"
+    },
+    {
+      question: "Which symbol is used separate JavaScript statements?",
+      choices: ["Comma (,)", "Colon (:)", "Hyphen (_)", "Semicolon (;)"],
+      answer: "Semicolon (;)"
+    },
+    {
+      question: "JavaScript ignores?",
+      choices: ["newlines", "tabs", "spaces", "All of he above"],
+      answer: "All of he above"
+    },
+    {
+      question: "Which property is used to define the HTML content to an HTML element with a specific id?",
+      choices: ["innerText", "innerContent", "elementText", "innerHTML"],
+      answer: "innerHTML"
+    },
+
   ];
   
   var score = 0;
-  var seconds = 60;
+  var seconds = 120;
   var questionIndex = 0;
   var choices = 4;
   var currentQuestion = questions[questionIndex];
@@ -51,10 +71,10 @@ var questions = [
   questionEl.classList.remove("questions");
   }
   function showIntro(){
-    startEl.style.display = "block";
-    timerEl.style.display = "none";
-    questionEl.classList.add("questions");
-    }
+  startEl.style.display = "block";
+  timerEl.style.display = "none";
+  questionEl.classList.add("questions");
+  }
   function hideTimer(){
   timerEl.style.display = "none";
   }
@@ -85,6 +105,7 @@ var questions = [
 
   // beginning of the questionnaire
   function start(){
+      questionEl.style.display = "block";
       questionTitleEl.textContent = currentQuestion.question;
       currentQuestion = questions[questionIndex];
 
@@ -93,7 +114,7 @@ var questions = [
         button.textContent = currentQuestion.choices[i];
         button.addEventListener("click", checkAnswer);
       }
-
+      
     }
 
 
@@ -101,15 +122,15 @@ var questions = [
   function checkAnswer(event){
     var correctAnswer = currentQuestion.answer;
     var selectedButton = event.target.textContent;
-console.log(score);
+
     if (selectedButton === correctAnswer) {
       score++;
     }
     else {
       seconds -= 10;
+
     }
     if (questionIndex < questions.length -1) {
-    
     questionIndex++;
     start();
     } else {
@@ -142,7 +163,7 @@ console.log(score);
   var startOver = startEl.addEventListener("click",function() {
   questionIndex = 0;
   score = 0;
-  seconds = 60;
+  seconds = 120;
   clearIntro();
   start();
   countdown(timerEl);
@@ -150,11 +171,10 @@ console.log(score);
 
   });
   
+  //submits the name and score to highscores page
   submit.addEventListener("click", function(event){
     
-    
     var submit = document.getElementById("submit-name").value;
-    
     var initials = document.createElement("button");
     localStorage.setItem("submit-name",submit);
     localStorage.setItem("submit-score",score);
@@ -165,11 +185,11 @@ console.log(score);
     hideEnd();    
     questionIndex = 0;
     score = 0;
-    seconds = 60;
+    seconds = 120;
     showScores();
-    //showIntro(); // fix this 
-  });
 
+  });
+  //will display the high scores
   highScoreBtn.addEventListener("click", function(event){
     event.preventDefault();
     seconds = 0;
@@ -181,10 +201,10 @@ console.log(score);
     showScores();
   });
 
+  //resets the high scores and starts the questions over again
   resetBtn.addEventListener("click", function(event){
     event.preventDefault();
     showIntro(); 
     hideEnd();  
     hideScores();
-
   });
