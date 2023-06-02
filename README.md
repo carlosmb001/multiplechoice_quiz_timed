@@ -1,115 +1,44 @@
-# 04 Web APIs: Code Quiz
+# Horiseon's Webpage
 
-## Your Task
+## Description:
+A timed test where the user has 2 minutes to answer 8 questions and they get a score at the end of the test. They can post their score at the end of the test. They have the ability to start the test over and over again and take the test over again.
 
-At some point in your journey to become a full-stack web developer, you’ll likely be asked to complete a coding assessment&mdash;perhaps as part of an interview process. A typical coding assessment includes both multiple-choice questions and interactive coding challenges. 
+### Motivation:
+Create  a questionaire about javascript, to test you knowledge of the users javascript. 
 
-To help familiarize you with these tests and allow you to use the skills covered in this module, this Challenge invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface. 
 
-This week’s coursework will equip you with all the skills you need to succeed in this assignment.
 
-## User Story
+## Description
 
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
+This project is a JavaScript-based quiz game that tests the user's knowledge of JavaScript concepts. The motivation behind building this project was to create an interactive and educational experience for users to learn and reinforce their understanding of JavaScript. The project solves the problem of engaging users in a fun and interactive way while learning JavaScript concepts.
 
-## Acceptance Criteria
+The quiz consists of multiple-choice questions related to JavaScript. The user is presented with a question and four possible choices. The user selects an answer by clicking on one of the choices, and the program checks if the answer is correct. The user's score is incremented for each correct answer, and if the answer is incorrect, a penalty of 10 seconds is applied to the timer. The quiz is timed, and the user must complete it within a specified time limit. At the end of the quiz, the user's final score is displayed, and they have the option to submit their name and score to the high scores page.
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score
-```
+Through this project, I learned how to dynamically generate and update HTML content using JavaScript. I also gained experience in handling user events, such as button clicks, and processing user input. Additionally, I learned how to implement a countdown timer and use local storage to store and retrieve data. Overall, this project allowed me to apply and enhance my JavaScript skills while creating an interactive quiz game.
 
-## Acceptance Criteria Simplified
+## Installation
 
-This project is about creating a quiz game. You will need to do the following:
+NA
 
-* Have a list of questions for the player. Each question should have at least 4 answers with one being correct. Have at least 2 questions, though more is encouraged!
-* When the user clicks the start button, show them the first question.
-* As the user answers questions, move them to the next question until all questions are out.
-* When no more questions are left, Show the game over screen.
-* Add in a timer. The timer should start as soon as the start button is clicked, and tick down each second. It should show in the top right corner of the page.
-* When the user choses an incorrect answer, take some time off the timer. How much is up to you.
-* When the timer reaches 0, show the game over screen.
-* Show the last timer value as the player's score on the game over screen.
-* Give the player the ability to enter their initials, then save them to localstorage along with the score from the game over screen. You should save the data in a format that allows multiple high scores to be saved.
-* Once the player saves their highscore, show the highscores as a list on the page
-* Add a link to the top left corner. When clicked, go directly to the highscore list.
+## Usage
 
-## Mock-Up
+![Alt text](assets/images/Intro.png)
+* This is the first prompt you are presented with.
+*Once you click on the button the quiz beings  
 
-The following animation demonstrates the application functionality:
+![Alt text](assets/images/Questionarie.png)
 
-![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Assets/04-web-apis-homework-demo.gif)
+* You are presented with the timer starting to countdown. There are a total of 8 questions. You have the option to reset the timer and start over and view highscores. 
 
-## Grading Requirements
+![Alt text](assets/images/Last_Prompt.png)
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+* Here you are prompted to enter your initals and it will add your score and initals to the highscores list.
 
-This Challenge is graded based on the following criteria: 
+![Alt text](assets/images/Highscores.png)
 
-### Technical Acceptance Criteria: 40%
+* This is the list of highscores from everyone played.
 
-* Satisfies all of the preceding acceptance criteria.
+## Credits:
+* Question source [https://www.includehelp.com/mcq/javascript-multiple-choice-questions-mcqs.aspx]
+* W3Schools Javascript [https://www.w3schools.com/js/js_events.asp]
 
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
----
-
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
