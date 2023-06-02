@@ -56,7 +56,6 @@ var questions = [
   var highScoreBtn = document.getElementById("high-score-btn");
   var questionEl = document.getElementById("questions");
   var questionTitleEl = document.getElementById("question-title");
-  var choiceEl = document.getElementsByClassName("choice");
   var scoreEl = document.getElementById("final-score");
   var endEL = document.getElementById("end");
   var highScores = document.getElementById("high-scores");
