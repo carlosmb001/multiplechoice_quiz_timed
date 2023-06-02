@@ -127,6 +127,7 @@ var questions = [
       score++;
     }
     else {
+      correctAnswer.textContent = "correctAnswer.textContent";
       seconds -= 10;
 
     }
@@ -207,4 +208,5 @@ var questions = [
     showIntro(); 
     hideEnd();  
     hideScores();
+    hideQuestions();
   });
