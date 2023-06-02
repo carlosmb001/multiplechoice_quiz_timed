@@ -64,7 +64,7 @@ var questions = [
   var resetBtn = document.getElementById("reset-button");
   
 
-  // removed the into amd displays the timer
+  // created changed the CSS to remove and display the differnt boxes
   function clearIntro(){
   startEl.style.display = "none";
   timerEl.style.display = "";
