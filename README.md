@@ -18,6 +18,7 @@ Through this project, I learned how to dynamically generate and update HTML cont
 
 ## Installation
 
+Deployed website: [https://carlosmb001.github.io/multiplechoice_quiz_timed/]
 NA
 
 ## Usage
