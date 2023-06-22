@@ -131,6 +131,8 @@ var questions = [
 
     }
     if (questionIndex < questions.length -1) {
+      console.log(questionIndex);
+      console.log(currentQuestion);
     questionIndex++;
     start();
     } else {
